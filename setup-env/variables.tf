@@ -2,6 +2,10 @@ variable "email-addr" {
   type = string
   default = "blah@blah.com"
 }
+variable "usecase" {
+  type = string
+  default = "dev"
+}
 variable "encrypted-xc-api-p12" {
   type = string
 }
