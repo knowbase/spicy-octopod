@@ -2,15 +2,10 @@ resource "github_repository_environment" "environment" {
   repository  = "spicy-octopod"
   environment = var.usecase
 }
-resource "github_actions_environment_secret" "xc-api-p12" {
+resource "github_actions_environment_secret" "state-bucket" {
   repository  = "spicy-octopod"
   environment = var.usecase
-  secret_name = "XC_API_P12"
-}
-resource "github_actions_environment_secret" "tfe-api-token" {
-  repository  = "spicy-octopod"
-  environment = var.usecase
-  secret_name = "TF_API_TOKEN"
+  secret_name = "STATE_BUCKET"
 }
 resource "github_actions_environment_variable" "tfe-env-workspace" {
   repository    = "spicy-octopod"
