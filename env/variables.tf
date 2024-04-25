@@ -7,10 +7,12 @@ variable "usecase" {
   default = "dev"
 }
 variable "encrypted-xc-api-p12" {
-  type = string
+  type    = string
+  default = "test"
 }
 variable "encrypted-tfe-api-token" {
-  type = string
+  type    = string
+  default = "test"
 }
 variable "tfe-env-workspace" {
   type    = string

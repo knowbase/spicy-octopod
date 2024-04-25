@@ -1,3 +1,8 @@
+#Global
+variable "infra" {
+  type    = string
+  default = true
+}
 #XC
 variable "xc_tenant" {
   type        = string
