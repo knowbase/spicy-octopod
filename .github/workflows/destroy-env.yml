@@ -42,11 +42,11 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Terraform'
+name: 'spicy octopod'
 
 on:
   push:
-    branches: [ "dev-d" ]
+    branches: [ "destroy" ]
   pull_request:
 
 permissions:
@@ -87,5 +87,5 @@ jobs:
       run: terraform plan -input=false
 
     - name: Terraform Destroy
-      if: github.ref == 'refs/heads/dev-d' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/destroy' && github.event_name == 'push'
       run: terraform destroy -auto-approve -input=false
