@@ -25,6 +25,16 @@ variable "app_domain" {
   type        = string
   description = "FQDN for the app. If you have delegated domain `prod.example.com`, then your app_domain can be `<app_name>.prod.example.com`"
 }
+variable "xc_api_pro" {
+  type        = string
+  description = "Enable API Protection (Definition and Rules)"
+  default     = "false"
+}
+variable "xc_api_disc" {
+  type        = string
+  description = "Enable API Discovery on single LB"
+  default     = "false"
+}
 variable "xc_api_spec" {
   type        = list(any)
   description = "XC object store path to swagger spec ex: https://my.tenant.domain/api/object_store/namespaces/my-ns/stored_objects/swagger/file-name/v1-22-01-12"
