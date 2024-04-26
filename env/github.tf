@@ -7,6 +7,12 @@ resource "github_actions_environment_secret" "state-bucket" {
   environment = var.usecase
   secret_name = "STATE_BUCKET"
 }
+resource "github_actions_environment_variable" "platform-infra" {
+  repository  = "spicy-octopod"
+  environment = var.infra
+  secret_name = "PLATFORM_INFRA"
+}
+/*
 resource "github_actions_environment_variable" "tfe-env-workspace" {
   repository    = "spicy-octopod"
   environment   = var.usecase
@@ -37,3 +43,4 @@ resource "github_actions_environment_variable" "tfe-k8s-workspace" {
   variable_name = "TF_CLOUD_WORKSPACE_K8S"
   value         = var.tfe-k8s-workspace
 }
+*/

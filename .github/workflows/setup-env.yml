@@ -46,7 +46,7 @@ name: 'spicy octopod'
 
 on:
   push:
-    branches: [ "deploy" ]
+    branches: [ "deploy-usecase1-gcp" ]
   pull_request:
 
 permissions:
@@ -54,7 +54,6 @@ permissions:
 
 jobs:
   terraform_env:
-    if: github.ref == 'refs/heads/deploy' && github.event_name == 'push'
     name: 'Setup-Env'
     runs-on: ubuntu-latest
     env:

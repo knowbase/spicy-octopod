@@ -6,13 +6,9 @@ variable "usecase" {
   type    = string
   default = "dev"
 }
-variable "encrypted-xc-api-p12" {
+variable "infra" {
   type    = string
-  default = "test"
-}
-variable "encrypted-tfe-api-token" {
-  type    = string
-  default = "test"
+  default = "false"
 }
 variable "tfe-env-workspace" {
   type    = string
@@ -45,8 +41,4 @@ variable "tfe-project-name" {
 variable "tfe-project-variable-set" {
   type    = string
   default = "my-variable-set"
-}
-variable "tfe-volt-api-p12-file" {
-  type    = string
-  default = "api.p12"
 }
