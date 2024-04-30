@@ -1,4 +1,8 @@
 variable "platform" {
   type    = string
-  default = "false"
+  default = "byop"
+}
+variable "usecase" {
+  type    = string
+  default = "test"
 }

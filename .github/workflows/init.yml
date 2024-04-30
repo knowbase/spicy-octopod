@@ -2,7 +2,7 @@ name: 'INIT'
 
 on:
   push:
-    branches: [ "init" ]
+    branches: [ "deploy" ]
   pull_request:
 
 permissions:
@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   terraform_init:
+    if: startsWith(github.event.ref, 'refs/tags/init')
     name: 'INIT'
     runs-on: ubuntu-latest
     env:
