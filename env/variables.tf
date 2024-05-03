@@ -6,9 +6,9 @@ variable "usecase" {
   type    = string
   default = "dev"
 }
-variable "infra" {
+variable "platform" {
   type    = string
-  default = "false"
+  default = "byop"
 }
 variable "tfe-env-workspace" {
   type    = string

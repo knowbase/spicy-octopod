@@ -1,16 +1,24 @@
-resource "github_repository_environment" "environment" {
+resource "github_repository_environment" "env" {
   repository  = "spicy-octopod"
-  environment = var.usecase
+  environment = format("%s-%s-%s", var.usecase, var.platform, random_id.build_suffix.hex)
 }
-resource "github_actions_environment_secret" "state-bucket" {
-  repository  = "spicy-octopod"
-  environment = var.usecase
-  secret_name = "STATE_BUCKET"
+resource "github_actions_environment_variable" "platform" {
+  repository    = "spicy-octopod"
+  environment   = github_repository_environment.env.environment
+  variable_name = "PLATFORM"
+  value         = var.platform
 }
-resource "github_actions_environment_variable" "platform-infra" {
+resource "github_actions_environment_variable" "build_suffix" {
+  repository    = "spicy-octopod"
+  environment   = github_repository_environment.env.environment
+  variable_name = "BUILD_SUFFIX"
+  value         = random_id.build_suffix.hex
+}
+resource "github_actions_environment_variable" "state-bucket" {
   repository  = "spicy-octopod"
-  environment = var.infra
-  secret_name = "PLATFORM_INFRA"
+  environment = github_repository_environment.env.environment
+  variable_name = "STATE_BUCKET"
+  value = var.state-bucket
 }
 /*
 resource "github_actions_environment_variable" "tfe-env-workspace" {

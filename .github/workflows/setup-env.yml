@@ -79,9 +79,6 @@ jobs:
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
       run: terraform fmt -check
- 
-    #- name: API P12
-    #  run: echo "${{secrets.XC_KEY}}" | base64 -d > ./api.p12
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
