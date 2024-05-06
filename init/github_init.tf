@@ -22,3 +22,13 @@ resource "github_actions_environment_secret" "aws-session-token" {
   repository  = "spicy-octopod"
   secret_name = "AWS_SESSION_TOKEN"
 }
+resource "github_actions_environment_secret" "arm-client-id" {
+  count       = var.platform == "azure" ? 1 : 0
+  repository  = "spicy-octopod"
+  secret_name = "ARM_CLIENT_ID"
+}
+resource "github_actions_environment_secret" "arm-client-secret" {
+  count       = var.platform == "aws" ? 1 : 0
+  repository  = "spicy-octopod"
+  secret_name = "ARM_CLIENT_SECRET"
+}
